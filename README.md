@@ -3,12 +3,12 @@ These are notes from a webinar by Jankiram MSV organised by DigitalOcean.
 
 # Introduction
 
-  Kafka - High throughput pub sub based messaging engine.
+  Kafka - High throughput pub-sub based messaging engine.
 
  * Enterprise messaging architecture. 
- * Data can come in from variety of data sources.
+ * Data can come in from a variety of data sources.
  * Dealing with multiple consumers is extremely easy and configurable.
- * High reliable and fault tolerant - If one of the servers responsible for forwarding incoming messages fail - there are multiple nodes which take care of it. 
+ * High reliable and fault tolerant - If one of the servers/kafka brokers responsible for forwarding incoming messages fail - there are multiple nodes which take care of it. 
  * Its messaging broker for heavy usage. 
 
 # General Usecases
@@ -22,24 +22,24 @@ These are notes from a webinar by Jankiram MSV organised by DigitalOcean.
 
  * <b>Source</b> - Anything which is generating data.
 
- * <b>Producers</b> - Responsible for acquiring data and ingesting into kafka. This is required when source directly cannot install kafka on it. Producers sends that data into the system.
+ * <b>Producers</b> - Responsible for acquiring data and ingesting into Kafka. This is required when source directly cannot install kafka client on it. Producers sends that data into the kafka system.
 
- * <b>Zookeeper</b> - Responsible for overall health of the kafka deployment. Co-ordinator for maintaining health of kafka deployment. Will take care of which brokers are up and which are not. Very important for the health.
+ * <b>Zookeeper</b> - Responsible for overall health of the kafka deployment. Co-ordinator for maintaining health of kafka deployment. Will take care of which brokers are up and which are not. Very important for the health of the overall system.
 
 # Implementation Pattern
 
-  Based on a popular pattern called <i>Lambda Architecture</i> - Prominent pattern in IoT systems.
+  Based on a popular pattern called <i>(Lambda Architecture)[http://lambda-architecture.net]</i> - Prominent pattern in IoT systems.
 
 # Usecase - Connected Cars
 
-Set of connected cars already on the road which is sending data parameters like - current acceleration, current velocity. There are other few parameters which are important to track in real time - availability of engine oil, temperature of engine and other health parameter, availability of fuel oil
+Let's say set of connected cars are already on the road which are sending data parameters like - current acceleration, current velocity. There are other data parameters which are important to track in real time - availability of engine oil, temperature of engine and other health parameter, availability of fuel oil etc.
 
-Let’s say a company is interested in 2 things :-
+Let’s say a company is interested in determining 2 things :-
       
 - Which cars are most fuel efficient and  wants to do route optimisation ?
-- Which car needs immediate attention ?
+- Which car needs immediate attention in terms of health ?
 
-All of these cars’ data will eventually hit on to Apache Kafka and then through apache Kafka go to further 2 paths 
+All of these cars’ data will eventually hit on to an Apache Kafka and then through Apache Kafka go to further 2 paths 
 - Hot Path Analytics - From Kafka to Apache Storm - (Useful for “car which need immediate attention”)
 - Cold Path Analytics  - From Kafka to Apache Hadoop for batch processing  - (Useful for “determining which car is most fuel efficient / how best to route optimisation”
 
