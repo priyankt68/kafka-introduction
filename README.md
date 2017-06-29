@@ -43,7 +43,8 @@ All of these cars’ data will eventually hit on to Apache Kafka and then throug
 - Hot Path Analytics - From Kafka to Apache Storm - (Useful for “car which need immediate attention”)
 - Cold Path Analytics  - From Kafka to Apache Hadoop for batch processing  - (Useful for “determining which car is most fuel efficient / how best to route optimisation”
 
-
+<img src='https://github.com/priyankt68/kafka-introduction/blob/master/hot_path_cold_kafka.png' /> 
+(image source)[https://thenewstack.io/apache-kafka-cornerstone-iot-data-platform/] 
 ￼
 In such a usecase Kafka acts as a gateway for deciding on where which sort of data goes.
 
